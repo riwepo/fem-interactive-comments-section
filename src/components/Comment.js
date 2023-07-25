@@ -1,7 +1,7 @@
 import React from "react";
 
-function Message() {
-  return <h1>message</h1>;
+function Comment() {
+  return <h1>comment</h1>;
 }
 
-export default Message;
+export default Comment;
