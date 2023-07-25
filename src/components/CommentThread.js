@@ -1,7 +1,7 @@
 import React from "react";
 
-function CommentThread({ comment }) {
-  return <li>{comment.content}</li>;
+function CommentThread({ commentThread }) {
+  return <li>{commentThread.content}</li>;
 }
 
 export default CommentThread;

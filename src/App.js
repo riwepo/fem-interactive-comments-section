@@ -1,6 +1,6 @@
 import React from "react";
 
-import CommentList from "./components/CommentList";
+import CommentThreadList from "./components/CommentThreadList";
 
 import { getCurrentUser, getComments } from "./data/dummyData";
 
@@ -10,7 +10,7 @@ const dummyComments = getComments();
 function App() {
   return (
     <div className="App">
-      <CommentList comments={dummyComments} />
+      <CommentThreadList commentThreads={dummyComments} />
     </div>
   );
 }
