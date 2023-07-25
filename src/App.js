@@ -10,7 +10,7 @@ const dummyComments = getComments();
 function App() {
   return (
     <div className="App">
-      <CommentList />
+      <CommentList comments={dummyComments} />
     </div>
   );
 }

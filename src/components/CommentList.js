@@ -1,7 +1,13 @@
 import React from "react";
 
-function CommentList() {
-  return <h1>comment list</h1>;
+function CommentList({ comments }) {
+  return (
+    <ul>
+      {comments.map((comment) => {
+        return <li>{comment.content}</li>;
+      })}
+    </ul>
+  );
 }
 
 export default CommentList;
