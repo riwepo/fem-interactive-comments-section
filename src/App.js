@@ -2,10 +2,10 @@ import React from "react";
 
 import CommentList from "./components/CommentList";
 
-import dummyData from "./data/dummyData";
+import { getCurrentUser, getComments } from "./data/dummyData";
 
-const currentUser = dummyData.getCurrentUser();
-const dummyComments = dummyData.getComments();
+const currentUser = getCurrentUser();
+const dummyComments = getComments();
 
 function App() {
   return (
