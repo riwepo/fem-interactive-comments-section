@@ -9,8 +9,8 @@ export function getCurrentUser() {
   return currentUser;
 }
 
-export function getComments() {
-  const comments = [
+export function getCommentThreads() {
+  const commentThreads = [
     {
       id: 1,
       content:
@@ -73,5 +73,5 @@ export function getComments() {
       ],
     },
   ];
-  return comments;
+  return commentThreads;
 }

@@ -2,15 +2,15 @@ import React from "react";
 
 import CommentThreadList from "./components/CommentThreadList";
 
-import { getCurrentUser, getComments } from "./data/dummyData";
+import { getCurrentUser, getCommentThreads } from "./data/dummyData";
 
 const currentUser = getCurrentUser();
-const dummyComments = getComments();
+const dummyCommentThreads = getCommentThreads();
 
 function App() {
   return (
     <div className="App">
-      <CommentThreadList commentThreads={dummyComments} />
+      <CommentThreadList commentThreads={dummyCommentThreads} />
     </div>
   );
 }
