@@ -4,14 +4,16 @@ import CommentThreadList from "./components/CommentThreadList";
 
 import { getCurrentUser, getCommentThreads } from "./data/dummyData";
 
+import classes from "./App.module.css";
+
 const currentUser = getCurrentUser();
 const dummyCommentThreads = getCommentThreads();
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <CommentThreadList commentThreads={dummyCommentThreads} />
-    </div>
+    </main>
   );
 }
 
