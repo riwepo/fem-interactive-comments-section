@@ -1,16 +1,14 @@
 import React from "react";
 import CommentList from "./CommentList";
-import Card from "./ui/Card";
+import Comment from "./Comment";
 
 function CommentThread({ commentThread }) {
   return (
     <li>
-      <Card>
-        <p>{commentThread.content}</p>
-        {commentThread.replies && (
-          <CommentList comments={commentThread.replies} />
-        )}
-      </Card>
+      <Comment comment={commentThread} />
+      {commentThread.replies && (
+        <CommentList comments={commentThread.replies} />
+      )}
     </li>
   );
 }
