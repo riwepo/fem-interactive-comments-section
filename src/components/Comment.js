@@ -1,11 +1,12 @@
 import React from "react";
 
+import Card from "./ui/Card";
+
 function Comment({ comment }) {
   return (
-    <li>
-      <p>hello</p>
+    <Card>
       <p>{comment.content}</p>
-    </li>
+    </Card>
   );
 }
 
