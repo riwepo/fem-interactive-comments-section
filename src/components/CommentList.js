@@ -1,6 +1,6 @@
 import React from "react";
 
-import Comment from "./Comment";
+import Comment from "./comment/Comment";
 
 import classes from "./CommentList.module.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import CommentList from "./CommentList";
-import Comment from "./Comment";
+import Comment from "./comment/Comment";
 
 function CommentThread({ commentThread }) {
   return (
