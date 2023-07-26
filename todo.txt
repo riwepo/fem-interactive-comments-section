@@ -1,0 +1,4 @@
+add voting widget
+add comment control buttons
+add editor down bottom
+add editor per comment
