@@ -1,14 +1,12 @@
 import React from "react";
-import CommentList from "./CommentList";
+import Replies from "./Replies";
 import Comment from "./comment/Comment";
 
 function CommentThread({ commentThread }) {
   return (
     <li>
       <Comment comment={commentThread} />
-      {commentThread.replies && (
-        <CommentList comments={commentThread.replies} />
-      )}
+      {commentThread.replies && <Replies comments={commentThread.replies} />}
     </li>
   );
 }

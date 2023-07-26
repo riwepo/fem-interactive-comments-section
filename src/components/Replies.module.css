@@ -1,0 +1,17 @@
+.repliesContainer {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.verticalLine {
+  border-left: 1px solid var(--grayish-blue-color);
+}
+
+.commentListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
