@@ -11,7 +11,7 @@ const dummyCommentThreads = getCommentThreads();
 
 function App() {
   return (
-    <main className="App">
+    <main className={classes.main}>
       <CommentThreadList commentThreads={dummyCommentThreads} />
     </main>
   );
