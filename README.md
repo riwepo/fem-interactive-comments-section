@@ -72,6 +72,8 @@ When dealing with images.
 If image is known at compile time, you can use import. Presumably Webpack packages it up in the package sent to the client's browser.
 If the image is dynamic and is only known at runtime, put the images in the 'public' folder. Find the path to the public folder at runtime using 'process.env.PUBLIC_URL'.
 
+I used useContext hook for the first time to store the current user.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
