@@ -7,7 +7,6 @@ function getAvatarPath(username) {
 }
 
 function CommentUserInfo({ user }) {
-  console.log(process.env.PUBLIC_URL + getAvatarPath(user.username));
   return (
     <div className={classes.container}>
       <img
