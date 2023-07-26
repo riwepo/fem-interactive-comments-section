@@ -8,7 +8,9 @@ function CommentThreadList({ commentThreads }) {
   return (
     <ul className={classes.threadListContainer}>
       {commentThreads.map((commentThread) => {
-        return <CommentThread commentThread={commentThread} />;
+        return (
+          <CommentThread key={commentThread.id} commentThread={commentThread} />
+        );
       })}
     </ul>
   );
