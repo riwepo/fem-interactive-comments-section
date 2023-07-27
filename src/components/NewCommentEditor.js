@@ -12,13 +12,13 @@ function NewCommentEditor() {
   return (
     <Card>
       <div className={classes.container}>
-        <p>new comment editor</p>
+        <textarea className={classes.textarea} placeholder="Add a comment..." />
         <img
-          className={classes.image}
+          className={classes.img}
           src={process.env.PUBLIC_URL + getAvatarPath(currentUser.username)}
           alt={`user ${currentUser.username} avatar`}
         />
-        <button className={classes.image}>Send</button>
+        <button className={classes.button}>Send</button>
       </div>
     </Card>
   );
