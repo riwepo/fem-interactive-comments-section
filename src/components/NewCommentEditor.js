@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 
+import Avatar from "./ui/Avatar";
 import Card from "./ui/Card";
 import Button from "./ui/Button";
 
 import { CurrentUserContext } from "../context/current-user-context";
-
-import { getAvatarPath } from "../utils";
 
 import classes from "./NewCommentEditor.module.css";
 
@@ -15,11 +14,7 @@ function NewCommentEditor() {
     <Card className={classes.card}>
       <div className={classes.container}>
         <textarea className={classes.textarea} placeholder="Add a comment..." />
-        <img
-          className={classes.img}
-          src={process.env.PUBLIC_URL + getAvatarPath(currentUser.username)}
-          alt={`user ${currentUser.username} avatar`}
-        />
+        <Avatar className={classes.avatar} username={currentUser.username} />
         <Button className={classes.button}>Send</Button>
       </div>
     </Card>
