@@ -12,7 +12,7 @@ import classes from "./NewCommentEditor.module.css";
 function NewCommentEditor() {
   const currentUser = useContext(CurrentUserContext);
   return (
-    <Card>
+    <Card className={classes.card}>
       <div className={classes.container}>
         <textarea className={classes.textarea} placeholder="Add a comment..." />
         <img
