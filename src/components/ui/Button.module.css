@@ -1,0 +1,12 @@
+.button {
+  background-color: var(--moderate-blue-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.button:hover,
+.button:active {
+  background-color: var(--moderate-blue-tint-color);
+}

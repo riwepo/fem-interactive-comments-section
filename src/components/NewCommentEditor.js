@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 
 import Card from "./ui/Card";
+import Button from "./ui/Button";
+
 import { CurrentUserContext } from "../context/current-user-context";
 
 import { getAvatarPath } from "../utils";
@@ -18,7 +20,7 @@ function NewCommentEditor() {
           src={process.env.PUBLIC_URL + getAvatarPath(currentUser.username)}
           alt={`user ${currentUser.username} avatar`}
         />
-        <button className={classes.button}>Send</button>
+        <Button className={classes.button}>Send</Button>
       </div>
     </Card>
   );
