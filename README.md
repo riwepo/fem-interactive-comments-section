@@ -74,6 +74,10 @@ If the image is dynamic and is only known at runtime, put the images in the 'pub
 
 I used useContext hook for the first time to store the current user.
 
+Import SVG as ReactComponent, change fill property of SVG to 'currentColor' and you can style it in css.
+
+Style components by giving them a className property and passing classes thru.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
