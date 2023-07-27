@@ -3,6 +3,7 @@ import React from "react";
 import Card from "../ui/Card";
 import CommentUserInfo from "./CommentUserInfo";
 import CommentVote from "./CommentVote";
+import CommentActions from "./CommmentActions";
 
 import classes from "./Comment.module.css";
 
@@ -25,6 +26,7 @@ function Comment({ comment }) {
           onPlusClick={votePlusClickHandler}
           onMinusClick={voteMinusClickHandler}
         />
+        <CommentActions className={classes.actions} />
       </div>
     </Card>
   );
