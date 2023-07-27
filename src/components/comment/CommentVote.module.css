@@ -17,6 +17,7 @@
   position: relative;
   padding: 0.5rem;
   border: none;
+  background-color: transparent;
 }
 
 .button:hover,
@@ -24,9 +25,32 @@
   cursor: pointer;
 }
 
-.buttonImg {
+.iconPlus {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  fill: var(--light-grayish-blue-color);
+  stroke: var(--light-grayish-blue-color);
+}
+
+.iconPlus:hover,
+.iconPlus:active {
+  fill: var(--moderate-blue-color);
+  stroke: var(--moderate-blue-color);
+}
+
+.iconMinus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: var(--light-grayish-blue-color);
+  stroke: var(--light-grayish-blue-color);
+}
+
+.iconMinus:hover,
+.iconMinus:active {
+  fill: var(--moderate-blue-color);
+  stroke: var(--moderate-blue-color);
 }

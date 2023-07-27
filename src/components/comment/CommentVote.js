@@ -1,7 +1,7 @@
 import React from "react";
 
-import iconPlus from "../../images/icon-plus.svg";
-import iconMinus from "../../images/icon-minus.svg";
+import { ReactComponent as IconPlus } from "../../images/icon-plus.svg";
+import { ReactComponent as IconMinus } from "../../images/icon-minus.svg";
 
 import classes from "./CommentVote.module.css";
 
@@ -9,11 +9,11 @@ function CommentVote({ className, count, onPlusClick, onMinusClick }) {
   return (
     <div className={`${className} ${classes.container}`}>
       <button className={classes.button} onClick={onPlusClick}>
-        <img className={classes.buttonImg} src={iconPlus} alt="plus icon" />
+        <IconPlus className={classes.iconPlus} />
       </button>
       <p className={classes.count}>{count}</p>
       <button className={classes.button} onClick={onMinusClick}>
-        <img className={classes.buttonImg} src={iconMinus} alt="minus icon" />
+        <IconMinus className={classes.iconMinus} />
       </button>
     </div>
   );
