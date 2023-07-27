@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from "../ui/Card";
 import CommentUserInfo from "./CommentUserInfo";
-import VoteWidget from "../VoteWidget";
+import CommentVote from "./CommentVote";
 
 import classes from "./Comment.module.css";
 
@@ -20,7 +20,7 @@ function Comment({ comment }) {
         <p>{comment.createdAt}</p>
       </div>
       <p>{comment.content}</p>
-      <VoteWidget
+      <CommentVote
         count={comment.score}
         onPlusClick={votePlusClickHandler}
         onMinusClick={voteMinusClickHandler}

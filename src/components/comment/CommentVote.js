@@ -1,11 +1,11 @@
 import React from "react";
 
-import iconPlus from "../images/icon-plus.svg";
-import iconMinus from "../images/icon-minus.svg";
+import iconPlus from "../../images/icon-plus.svg";
+import iconMinus from "../../images/icon-minus.svg";
 
-import classes from "./VoteWidget.module.css";
+import classes from "./CommentVote.module.css";
 
-function VoteWidget({ count, onPlusClick, onMinusClick }) {
+function CommentVote({ count, onPlusClick, onMinusClick }) {
   return (
     <div className={classes.container}>
       <button className={classes.button} onClick={onPlusClick}>
@@ -19,4 +19,4 @@ function VoteWidget({ count, onPlusClick, onMinusClick }) {
   );
 }
 
-export default VoteWidget;
+export default CommentVote;
