@@ -1,9 +1,24 @@
-.commentInfoContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem;
+.commentContainer {
+  display: grid;
+}
 
-  /* background-color: red; */
+.userInfo {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.createdAt {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.content {
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.vote {
+  grid-row: 3;
+  grid-column: 1;
 }

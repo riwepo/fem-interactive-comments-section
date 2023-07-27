@@ -15,16 +15,17 @@ function Comment({ comment }) {
   };
   return (
     <Card>
-      <div className={classes.commentInfoContainer}>
-        <CommentUserInfo user={comment.user} />
-        <p>{comment.createdAt}</p>
+      <div className={classes.commentContainer}>
+        <CommentUserInfo className={classes.userInfo} user={comment.user} />
+        <p className={classes.createdAt}>{comment.createdAt}</p>
+        <p className={classes.content}>{comment.content}</p>
+        <CommentVote
+          className={classes.vote}
+          count={comment.score}
+          onPlusClick={votePlusClickHandler}
+          onMinusClick={voteMinusClickHandler}
+        />
       </div>
-      <p>{comment.content}</p>
-      <CommentVote
-        count={comment.score}
-        onPlusClick={votePlusClickHandler}
-        onMinusClick={voteMinusClickHandler}
-      />
     </Card>
   );
 }

@@ -5,9 +5,9 @@ import iconMinus from "../../images/icon-minus.svg";
 
 import classes from "./CommentVote.module.css";
 
-function CommentVote({ count, onPlusClick, onMinusClick }) {
+function CommentVote({ className, count, onPlusClick, onMinusClick }) {
   return (
-    <div className={classes.container}>
+    <div className={`${className} ${classes.container}`}>
       <button className={classes.button} onClick={onPlusClick}>
         <img className={classes.buttonImg} src={iconPlus} alt="plus icon" />
       </button>

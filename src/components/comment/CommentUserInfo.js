@@ -7,11 +7,11 @@ function getAvatarPath(username) {
   return `/images/avatars/image-${username}.png`;
 }
 
-function CommentUserInfo({ user }) {
+function CommentUserInfo({ className, user }) {
   const currentUser = useContext(CurrentUserContext);
   const userIsCurrentUser = currentUser.username === user.username;
   return (
-    <div className={classes.container}>
+    <div className={`${className} ${classes.container}`}>
       <img
         className={classes.image}
         src={process.env.PUBLIC_URL + getAvatarPath(user.username)}
