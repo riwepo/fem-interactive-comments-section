@@ -1,0 +1,32 @@
+.container {
+  width: 5rem;
+  padding: 0.25rem;
+  background-color: var(--light-gray-color);
+  border-radius: 0.25rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+.button {
+  position: relative;
+  padding: 0.5rem;
+  border: none;
+}
+
+.button:hover,
+.button:active {
+  cursor: pointer;
+}
+
+.buttonImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
