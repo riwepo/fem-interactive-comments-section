@@ -15,6 +15,61 @@
   flex-direction: row;
   gap: 0.5rem;
 }
+.button:hover,
+.button:active {
+  cursor: pointer;
+}
+
+.buttonReply {
+  color: var(--moderate-blue-color);
+}
+
+.buttonReply:hover,
+.buttonReply:active {
+  color: var(--light-grayish-blue-color);
+}
+
 .buttonDelete {
   color: var(--soft-red-color);
+}
+
+.buttonDelete:hover,
+.buttonDelete:active {
+  color: var(--pale-red-color);
+}
+
+.buttonEdit {
+  color: var(--moderate-blue-color);
+}
+
+.buttonEdit:hover,
+.buttonEdit:active {
+  color: var(--light-grayish-blue-color);
+}
+
+.iconReply {
+  fill: var(--moderate-blue-color);
+}
+
+.iconReply:hover,
+.iconReply:active {
+  color: var(--light-grayish-blue-color);
+}
+
+.iconDelete {
+  fill: var(--s);
+}
+
+.iconDelete:hover,
+.iconDelete:active {
+  color: var(--pale-red-color);
+}
+
+.iconEdit {
+  fill: var(--moderate-blue-color);
+}
+
+.iconEdit:hover,
+.iconEdit:active {
+  color: var(--light-grayish-blue-color);
 }
