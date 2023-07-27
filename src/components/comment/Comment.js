@@ -18,7 +18,7 @@ function Comment({ comment }) {
     console.log("minus clicked");
   };
   return (
-    <Card>
+    <Card className={classes.card}>
       <div className={classes.commentContainer}>
         <CommentUserInfo
           className={classes.userInfo}
