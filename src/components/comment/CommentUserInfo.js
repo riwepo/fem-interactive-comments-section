@@ -1,10 +1,8 @@
 import React from "react";
 
-import classes from "./CommentUserInfo.module.css";
+import { getAvatarPath } from "../../utils";
 
-function getAvatarPath(username) {
-  return `/images/avatars/image-${username}.png`;
-}
+import classes from "./CommentUserInfo.module.css";
 
 function CommentUserInfo({ className, user, isYou }) {
   return (
