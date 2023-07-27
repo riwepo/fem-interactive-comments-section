@@ -1,4 +1,6 @@
-add voting widget
-add comment control buttons
+
 add editor down bottom
 add editor per comment
+add leading name in reply
+tidy up styling
+implement desktop styling
