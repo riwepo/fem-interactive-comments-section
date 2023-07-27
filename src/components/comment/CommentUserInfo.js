@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { CurrentUserContext } from "../../context/current-user-context";
+import React from "react";
 
 import classes from "./CommentUserInfo.module.css";
 
@@ -7,9 +6,7 @@ function getAvatarPath(username) {
   return `/images/avatars/image-${username}.png`;
 }
 
-function CommentUserInfo({ className, user }) {
-  const currentUser = useContext(CurrentUserContext);
-  const userIsCurrentUser = currentUser.username === user.username;
+function CommentUserInfo({ className, user, isYou }) {
   return (
     <div className={`${className} ${classes.container}`}>
       <img
@@ -18,7 +15,7 @@ function CommentUserInfo({ className, user }) {
         alt={`user ${user.userName} avatar`}
       />
       <p>{user.username}</p>
-      {userIsCurrentUser && <p>YOU</p>}
+      {isYou && <p>YOU</p>}
     </div>
   );
 }
