@@ -8,7 +8,6 @@ import classes from "./CommentAndReply.module.css";
 function CommentAndReply({ comment }) {
   const [isReplying, setIsReplying] = useState(false);
   const replyClickHandler = () => {
-    console.log("reply clicked");
     setIsReplying((current) => !current);
   };
   return (
