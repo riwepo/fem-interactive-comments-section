@@ -3,5 +3,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+
+  /* debugging only */
+  border: solid thin black;
 }

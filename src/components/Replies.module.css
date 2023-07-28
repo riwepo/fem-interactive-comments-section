@@ -3,7 +3,9 @@
   margin-left: 2rem;
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+
+  /* debugging only */
+  border: solid thin black;
 }
 
 .verticalLine {
@@ -13,5 +15,4 @@
 .commentListContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }

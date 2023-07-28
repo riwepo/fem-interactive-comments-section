@@ -1,5 +1,11 @@
+.card {
+  margin-bottom: 1rem;
+}
 .commentContainer {
   display: grid;
+
+  /* debugging only */
+  border: solid thin black;
 }
 
 .userInfo {
