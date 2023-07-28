@@ -5,7 +5,7 @@
   display: grid;
 
   /* debugging only */
-  border: solid thin black;
+  /* border: solid thin black; */
 }
 
 .userInfo {

@@ -5,7 +5,7 @@
   flex-direction: row;
 
   /* debugging only */
-  border: solid thin black;
+  /* border: solid thin black; */
 }
 
 .verticalLine {
