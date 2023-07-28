@@ -15,7 +15,7 @@ function NewCommentEditor() {
       <div className={classes.container}>
         <textarea className={classes.textarea} placeholder="Add a comment..." />
         <Avatar className={classes.avatar} username={currentUser.username} />
-        <Button className={classes.button}>Send</Button>
+        <Button className={classes.button}>SEND</Button>
       </div>
     </Card>
   );
