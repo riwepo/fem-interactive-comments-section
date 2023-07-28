@@ -1,6 +1,11 @@
 // adds a new comment and returns the new comment list
 export function addComment(comments, author, replyingTo, content) {
-  const nextId = comments.max((c) => c.id) + 1;
+  const nextId =
+    Math.max.apply(
+      Math,
+      comments.map((c) => c.id)
+    ) + 1;
+
   const newComment = {
     id: nextId,
     content: content,

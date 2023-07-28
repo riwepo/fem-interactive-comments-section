@@ -8,6 +8,7 @@ export function transformCommentsToThreads(comments) {
   const topLevelTransformed = topLevelComments.map(transform);
   const withReplies = topLevelTransformed.map((x) => {
     const replies = comments.filter((y) => y.replyingTo === x.id);
+    console.log(replies);
     const transformedReplies = replies.map(transform);
     const result = { ...x, replies: transformedReplies };
     return result;

@@ -9,7 +9,7 @@ export const CommentsContext = React.createContext({
   comments: [{}],
 
   // function to add a comment
-  addCommment: (comment) => {},
+  addCommment: (author, replyingTo, content) => {},
 
   // comment thread data
   getCommentThreads: () => {},
@@ -30,7 +30,9 @@ export default function CommentsContextProvider({ children }) {
   };
 
   // utility function to transform flat data to threads
-  const getCommentThreads = () => transformCommentsToThreads(comments);
+  const getCommentThreads = () => {
+    return transformCommentsToThreads(comments);
+  };
 
   return (
     <CommentsContext.Provider

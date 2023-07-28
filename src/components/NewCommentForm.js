@@ -8,13 +8,15 @@ import { CurrentUserContext } from "../context/current-user-context";
 
 import classes from "./NewCommentForm.module.css";
 
-function NewCommentForm({ replyToId }) {
+function NewCommentForm({ replyToId, onSubmit }) {
   const currentUser = useContext(CurrentUserContext);
   const [enteredText, setEnteredText] = useState("");
   const [isValid, setIsValid] = useState(false);
   const buttonText = replyToId ? "REPLY" : "SEND";
   const submitHandler = (event) => {
     event.preventDefault();
+    onSubmit(enteredText);
+    setEnteredText("");
   };
   const textChangeHandler = (event) => {
     const myText = event.target.value;
@@ -28,6 +30,7 @@ function NewCommentForm({ replyToId }) {
           className={classes.textarea}
           placeholder="Add a comment..."
           onChange={textChangeHandler}
+          value={enteredText}
         />
         <Avatar className={classes.avatar} username={currentUser.username} />
         <Button className={classes.button} disabled={!isValid}>
