@@ -14,7 +14,7 @@ function Replies({ comments }) {
           return (
             <>
               <Comment key={comment.id} comment={comment} />
-              <NewCommentEditor />
+              <NewCommentEditor replyToId={comment.id} />
             </>
           );
         })}

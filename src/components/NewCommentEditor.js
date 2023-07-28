@@ -8,14 +8,15 @@ import { CurrentUserContext } from "../context/current-user-context";
 
 import classes from "./NewCommentEditor.module.css";
 
-function NewCommentEditor() {
+function NewCommentEditor({ replyToId }) {
   const currentUser = useContext(CurrentUserContext);
+  const buttonText = replyToId ? "REPLY" : "SEND";
   return (
     <Card className={classes.card}>
       <div className={classes.container}>
         <textarea className={classes.textarea} placeholder="Add a comment..." />
         <Avatar className={classes.avatar} username={currentUser.username} />
-        <Button className={classes.button}>SEND</Button>
+        <Button className={classes.button}>{buttonText}</Button>
       </div>
     </Card>
   );

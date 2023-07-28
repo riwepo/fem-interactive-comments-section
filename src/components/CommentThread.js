@@ -8,7 +8,7 @@ function CommentThread({ commentThread }) {
   return (
     <li>
       <Comment comment={commentThread} />
-      <NewCommentEditor />
+      <NewCommentEditor replyToId={commentThread.id} />
       {commentThread.replies && <Replies comments={commentThread.replies} />}
     </li>
   );

@@ -15,7 +15,7 @@ function App() {
     <main className={classes.main}>
       <CurrentUserProvider>
         <CommentThreadList commentThreads={dummyCommentThreads} />
-        <NewCommentEditor />
+        <NewCommentEditor replyToId={null} />
       </CurrentUserProvider>
     </main>
   );
