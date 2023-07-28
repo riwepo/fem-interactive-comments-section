@@ -6,11 +6,14 @@ import { ReactComponent as IconEdit } from "../../images/icon-edit.svg";
 
 import classes from "./CommentActions.module.css";
 
-function CommentActions({ className, isYou }) {
+function CommentActions({ className, isYou, onReplyClick }) {
   return (
     <div className={`${className} ${classes.container}`}>
       {!isYou && (
-        <button className={`${classes.button} ${classes.buttonReply}`}>
+        <button
+          className={`${classes.button} ${classes.buttonReply}`}
+          onClick={onReplyClick}
+        >
           <IconReply className={classes.iconReply} />
           <p>Reply</p>
         </button>
