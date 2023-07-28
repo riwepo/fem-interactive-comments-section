@@ -1,5 +1,5 @@
 // adds a new comment and returns the new comment list
-export function addComment(comments, author, replyingTo, content) {
+export function addComment(comments, author, replyToCommentId, content) {
   const nextId =
     Math.max.apply(
       Math,
@@ -12,7 +12,7 @@ export function addComment(comments, author, replyingTo, content) {
     createdAt: "today",
     score: 0,
     username: author,
-    replyingTo: replyingTo,
+    replyToCommentId: replyToCommentId,
   };
   const newCommentList = [...comments, newComment];
   return newCommentList;
