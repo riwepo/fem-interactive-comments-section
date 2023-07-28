@@ -8,15 +8,11 @@ import { CurrentUserContext } from "../../context/current-user-context";
 
 import classes from "./Comment.module.css";
 
-function Comment({ comment, onReplyClick }) {
+function Comment({ comment, onCreateReplyClick }) {
   const currentUser = useContext(CurrentUserContext);
   const userIsCurrentUser = currentUser.username === comment.user.username;
-  const votePlusClickHandler = () => {
-    console.log("plus clicked");
-  };
-  const voteMinusClickHandler = () => {
-    console.log("minus clicked");
-  };
+  const votePlusClickHandler = () => {};
+  const voteMinusClickHandler = () => {};
 
   return (
     <Card className={classes.card}>
@@ -37,7 +33,7 @@ function Comment({ comment, onReplyClick }) {
         <CommentActions
           className={classes.actions}
           isYou={userIsCurrentUser}
-          onReplyClick={onReplyClick}
+          onCreateReplyClick={onCreateReplyClick}
         />
       </div>
     </Card>
