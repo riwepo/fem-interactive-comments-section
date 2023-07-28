@@ -9,7 +9,7 @@ export const CommentsContext = React.createContext({
   comments: [{}],
 
   // function to add a comment
-  addCommment: (author, replyingTo, content) => {},
+  addCommment: (author, replyToCommentId, content) => {},
 
   // comment thread data
   getCommentThreads: () => {},
@@ -19,11 +19,11 @@ export default function CommentsContextProvider({ children }) {
   // comments as flat data
   const [comments, setCommments] = useState(INITIAL_COMMENTS);
 
-  const addComment = (author, replyingTo, content) => {
+  const addComment = (author, replyToCommentId, content) => {
     const updatedComments = addCommentApi(
       comments,
       author,
-      replyingTo,
+      replyToCommentId,
       content
     );
     setCommments(updatedComments);
