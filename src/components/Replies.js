@@ -1,7 +1,6 @@
 import React from "react";
 
-import Comment from "./comment/Comment";
-import NewCommentForm from "./NewCommentForm";
+import CommentAndReply from "./CommentAndReply";
 
 import classes from "./Replies.module.css";
 
@@ -10,14 +9,9 @@ function Replies({ comments }) {
     <div className={classes.repliesContainer}>
       <div className={classes.verticalLine}></div>
       <ul className={classes.commentListContainer}>
-        {comments.map((comment) => {
-          return (
-            <div key={comment.id}>
-              <Comment comment={comment} onReplyClick={null} />
-              <NewCommentForm replyToId={comment.id} />
-            </div>
-          );
-        })}
+        {comments.map((comment) => (
+          <CommentAndReply key={comment.id} comment={comment} />
+        ))}
       </ul>
     </div>
   );
