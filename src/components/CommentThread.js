@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Replies from "./Replies";
 import Comment from "./comment/Comment";
-import NewCommentEditor from "./NewCommentEditor";
+import NewCommentForm from "./NewCommentForm";
 
 function CommentThread({ commentThread }) {
   const [isReplying, setIsReplying] = useState(false);
@@ -13,7 +13,7 @@ function CommentThread({ commentThread }) {
   return (
     <li>
       <Comment comment={commentThread} onReplyClick={replyClickHandler} />
-      {isReplying && <NewCommentEditor replyToId={commentThread.id} />}
+      {isReplying && <NewCommentForm replyToId={commentThread.id} />}
       {commentThread.replies && <Replies comments={commentThread.replies} />}
     </li>
   );

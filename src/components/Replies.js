@@ -1,7 +1,7 @@
 import React from "react";
 
 import Comment from "./comment/Comment";
-import NewCommentEditor from "./NewCommentEditor";
+import NewCommentForm from "./NewCommentForm";
 
 import classes from "./Replies.module.css";
 
@@ -13,8 +13,8 @@ function Replies({ comments }) {
         {comments.map((comment) => {
           return (
             <div key={comment.id}>
-              <Comment comment={comment} />
-              <NewCommentEditor replyToId={comment.id} />
+              <Comment comment={comment} onReplyClick={null} />
+              <NewCommentForm replyToId={comment.id} />
             </div>
           );
         })}

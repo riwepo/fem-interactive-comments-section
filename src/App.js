@@ -6,7 +6,7 @@ import { getCommentThreads } from "./data/dummyData";
 
 import classes from "./App.module.css";
 import CurrentUserProvider from "./context/current-user-context";
-import NewCommentEditor from "./components/NewCommentEditor";
+import NewCommentForm from "./components/NewCommentForm";
 
 const dummyCommentThreads = getCommentThreads();
 
@@ -15,7 +15,7 @@ function App() {
     <main className={classes.main}>
       <CurrentUserProvider>
         <CommentThreadList commentThreads={dummyCommentThreads} />
-        <NewCommentEditor replyToId={null} />
+        <NewCommentForm replyToId={null} />
       </CurrentUserProvider>
     </main>
   );

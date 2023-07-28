@@ -6,9 +6,9 @@ import Button from "./ui/Button";
 
 import { CurrentUserContext } from "../context/current-user-context";
 
-import classes from "./NewCommentEditor.module.css";
+import classes from "./NewCommentForm.module.css";
 
-function NewCommentEditor({ replyToId }) {
+function NewCommentForm({ replyToId }) {
   const currentUser = useContext(CurrentUserContext);
   const buttonText = replyToId ? "REPLY" : "SEND";
   return (
@@ -22,4 +22,4 @@ function NewCommentEditor({ replyToId }) {
   );
 }
 
-export default NewCommentEditor;
+export default NewCommentForm;
