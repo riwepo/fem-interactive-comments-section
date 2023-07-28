@@ -9,4 +9,10 @@
 .button:hover,
 .button:active {
   background-color: var(--moderate-blue-tint-color);
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: var(--moderate-blue-tint-color);
+  cursor: default;
 }
