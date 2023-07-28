@@ -12,10 +12,10 @@ function Replies({ comments }) {
       <ul className={classes.commentListContainer}>
         {comments.map((comment) => {
           return (
-            <>
-              <Comment key={comment.id} comment={comment} />
+            <div key={comment.id}>
+              <Comment comment={comment} />
               <NewCommentEditor replyToId={comment.id} />
-            </>
+            </div>
           );
         })}
       </ul>
