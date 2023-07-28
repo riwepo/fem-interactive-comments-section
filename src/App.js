@@ -1,21 +1,21 @@
 import React from "react";
 
 import CommentThreadList from "./components/CommentThreadList";
-
-import { getCommentThreads } from "./data/dummyData";
-
-import classes from "./App.module.css";
-import CurrentUserProvider from "./context/current-user-context";
 import NewCommentForm from "./components/NewCommentForm";
 
-const dummyCommentThreads = getCommentThreads();
+import CurrentUserProvider from "./context/current-user-context";
+import CommentsProvider from "./context/comments-context";
+
+import classes from "./App.module.css";
 
 function App() {
   return (
     <main className={classes.main}>
       <CurrentUserProvider>
-        <CommentThreadList commentThreads={dummyCommentThreads} />
-        <NewCommentForm replyToId={null} />
+        <CommentsProvider>
+          <CommentThreadList />
+          <NewCommentForm replyToId={null} />
+        </CommentsProvider>
       </CurrentUserProvider>
     </main>
   );
