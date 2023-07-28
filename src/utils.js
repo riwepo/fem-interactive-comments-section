@@ -4,27 +4,40 @@ export function getAvatarPath(username) {
 
 // transform flat comments data to threads
 export function transformCommentsToThreads(comments) {
-  const topLevelComments = comments.filter((c) => !c.replyingTo);
-  const topLevelTransformed = topLevelComments.map(transform);
+  const topLevelComments = comments.filter((c) => !c.replyToCommentId);
+  // console.log("topLevelComments", topLevelComments);
+  const topLevelTransformed = topLevelComments.map((x) =>
+    transform(comments, x)
+  );
   const withReplies = topLevelTransformed.map((x) => {
-    const replies = comments.filter((y) => y.replyingTo === x.id);
-    console.log(replies);
-    const transformedReplies = replies.map(transform);
+    const replies = comments.filter((y) => y.replyToCommentId === x.id);
+    const transformedReplies = replies.map((x) => transform(comments, x));
     const result = { ...x, replies: transformedReplies };
     return result;
   });
+  // console.log("withReplies", withReplies);
   return withReplies;
 }
 
+// add the replyToUsername, found from the replyToCommentId
 // turn user into object
 // add empty replies array
-function transform(comment) {
+function transform(comments, comment) {
+  const withReplyToUsername = addReplyToUsername(comments, comment);
   return {
-    id: comment.id,
-    content: comment.content,
-    createdAt: comment.createdAt,
-    score: comment.score,
+    ...withReplyToUsername,
     user: { username: comment.username },
     replies: [],
   };
+}
+
+function addReplyToUsername(comments, comment) {
+  let replyToUsername = null;
+  if (comment.replyToCommentId) {
+    const repliedComment = comments.find(
+      (x) => x.id === comment.replyToCommentId
+    );
+    replyToUsername = repliedComment.username;
+  }
+  return { ...comment, replyToUsername };
 }
