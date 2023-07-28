@@ -8,11 +8,11 @@ import { CurrentUserContext } from "../context/current-user-context";
 
 import classes from "./NewCommentForm.module.css";
 
-function NewCommentForm({ replyToId, onSubmit }) {
+function NewCommentForm({ replyToCommentId, onSubmit }) {
   const currentUser = useContext(CurrentUserContext);
   const [enteredText, setEnteredText] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const buttonText = replyToId ? "REPLY" : "SEND";
+  const buttonText = replyToCommentId ? "REPLY" : "SEND";
   const submitHandler = (event) => {
     event.preventDefault();
     onSubmit(enteredText);
