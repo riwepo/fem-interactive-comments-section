@@ -12,22 +12,23 @@ function CommentAndReply({ comment }) {
   const [isReplying, setIsReplying] = useState(false);
   const commentsContext = useContext(CommentsContext);
   const currentUserContext = useContext(CurrentUserContext);
-  const replyClickHandler = () => {
+  const createReplyClickHandler = () => {
     setIsReplying((current) => !current);
   };
   const submitCommentHandler = (content) => {
     commentsContext.addCommment(
       currentUserContext.username,
-      comment.user.username,
+      comment.id,
       content
     );
+    setIsReplying(false);
   };
   return (
     <div className={classes.container}>
-      <Comment comment={comment} onReplyClick={replyClickHandler} />
+      <Comment comment={comment} onCreateReplyClick={createReplyClickHandler} />
       {isReplying && (
         <NewCommentForm
-          replyToId={comment.id}
+          replyToCommentId={comment.id}
           onSubmit={submitCommentHandler}
         />
       )}
