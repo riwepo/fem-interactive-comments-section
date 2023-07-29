@@ -21,11 +21,15 @@ function NewCommentForm({ replyToCommentId, replyToUsername, onSubmit }) {
   const submitHandler = (event) => {
     event.preventDefault();
     if (!isValid) return;
+    // todo style username color
+    const withReplyToUsername = replyToUsername
+      ? `@${replyToUsername} ${enteredText}`
+      : enteredText;
     commentsContext.addCommment(
       currentUserContext.username,
       replyToCommentId,
       replyToUsername,
-      enteredText
+      withReplyToUsername
     );
     onSubmit();
     setEnteredText("");
