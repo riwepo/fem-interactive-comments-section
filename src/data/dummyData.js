@@ -26,9 +26,8 @@ export const INITIAL_COMMENTS = [
   },
   {
     id: 3,
-    // content:
-    //   "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
-    content: "hello",
+    content:
+      "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
     createdAt: "1 week ago",
     score: 5,
     username: "ramsesmiron",
