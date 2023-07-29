@@ -5,24 +5,38 @@ import Card from "./ui/Card";
 import Button from "./ui/Button";
 
 import { CurrentUserContext } from "../context/current-user-context";
+import { CommentsContext } from "../context/comments-context";
 
 import classes from "./NewCommentForm.module.css";
 
 function NewCommentForm({ replyToCommentId, onSubmit }) {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUserContext = useContext(CurrentUserContext);
+  const commentsContext = useContext(CommentsContext);
+
   const [enteredText, setEnteredText] = useState("");
   const [isValid, setIsValid] = useState(false);
+
   const buttonText = replyToCommentId ? "REPLY" : "SEND";
+  console.log("isValid", isValid);
+
   const submitHandler = (event) => {
     event.preventDefault();
-    onSubmit(enteredText);
+    if (!isValid) return;
+    commentsContext.addCommment(
+      currentUserContext.username,
+      replyToCommentId,
+      enteredText
+    );
+    onSubmit();
     setEnteredText("");
   };
+
   const textChangeHandler = (event) => {
     const myText = event.target.value;
     setEnteredText(myText);
     setIsValid(myText && myText !== "");
   };
+
   return (
     <Card className={classes.card}>
       <form className={classes.container} onSubmit={submitHandler}>
@@ -32,7 +46,10 @@ function NewCommentForm({ replyToCommentId, onSubmit }) {
           onChange={textChangeHandler}
           value={enteredText}
         />
-        <Avatar className={classes.avatar} username={currentUser.username} />
+        <Avatar
+          className={classes.avatar}
+          username={currentUserContext.username}
+        />
         <Button className={classes.button} disabled={!isValid}>
           {buttonText}
         </Button>

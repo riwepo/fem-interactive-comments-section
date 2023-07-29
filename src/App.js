@@ -9,15 +9,21 @@ import CommentsProvider from "./context/comments-context";
 import classes from "./App.module.css";
 
 function App() {
+  const onSubmitCommentHandler = () => {
+    // nothing to do here
+  };
   return (
-    <main className={classes.main}>
-      <CurrentUserProvider>
-        <CommentsProvider>
+    <CurrentUserProvider>
+      <CommentsProvider>
+        <main className={classes.main}>
           <CommentThreadList />
-          <NewCommentForm replyToId={null} />
-        </CommentsProvider>
-      </CurrentUserProvider>
-    </main>
+          <NewCommentForm
+            replyToCommentId={null}
+            onSubmit={onSubmitCommentHandler}
+          />
+        </main>
+      </CommentsProvider>
+    </CurrentUserProvider>
   );
 }
 
