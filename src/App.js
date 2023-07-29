@@ -19,6 +19,7 @@ function App() {
           <CommentThreadList />
           <NewCommentForm
             replyToCommentId={null}
+            replyToUsername={null}
             onSubmit={onSubmitCommentHandler}
           />
         </main>
