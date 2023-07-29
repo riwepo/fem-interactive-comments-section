@@ -14,6 +14,7 @@ export const INITIAL_COMMENTS = [
     score: 12,
     username: "amyrobson",
     replyToCommentId: null,
+    replyToUsername: null,
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ export const INITIAL_COMMENTS = [
     score: 5,
     username: "maxblagun",
     replyToCommentId: null,
+    replyToUsername: null,
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ export const INITIAL_COMMENTS = [
     score: 5,
     username: "ramsesmiron",
     replyToCommentId: 2,
+    replyToUsername: "maxblagun",
   },
   {
     id: 4,
@@ -41,5 +44,6 @@ export const INITIAL_COMMENTS = [
     score: 2,
     username: "juliusomo",
     replyToCommentId: 2,
+    replyToUsername: "maxblagun",
   },
 ];

@@ -1,5 +1,21 @@
 // adds a new comment and returns the new comment list
-export function addComment(comments, author, replyToCommentId, content) {
+
+/**
+ *
+ * @param {*} comments original data
+ * @param {*} author author of new comment
+ * @param {*} replyToCommentId comment we are replying to
+ * @param {*} replyToUsername username we are replying to
+ * @param {*} content content of the comment
+ * @returns
+ */
+export function addComment(
+  comments,
+  author,
+  replyToCommentId,
+  replyToUsername,
+  content
+) {
   const nextId =
     Math.max.apply(
       Math,
@@ -13,6 +29,7 @@ export function addComment(comments, author, replyToCommentId, content) {
     score: 0,
     username: author,
     replyToCommentId: replyToCommentId,
+    replyToUsername: replyToUsername,
   };
   const newCommentList = [...comments, newComment];
   return newCommentList;
