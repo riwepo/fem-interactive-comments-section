@@ -1,6 +1,6 @@
 
-add editor down bottom
-add editor per comment
 add leading name in reply
+implement delete
+implement edit
 tidy up styling
 implement desktop styling
