@@ -17,7 +17,6 @@ function NewCommentForm({ replyToCommentId, onSubmit }) {
   const [isValid, setIsValid] = useState(false);
 
   const buttonText = replyToCommentId ? "REPLY" : "SEND";
-  console.log("isValid", isValid);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -29,6 +28,7 @@ function NewCommentForm({ replyToCommentId, onSubmit }) {
     );
     onSubmit();
     setEnteredText("");
+    setIsValid(false);
   };
 
   const textChangeHandler = (event) => {
