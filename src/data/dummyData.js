@@ -1,5 +1,3 @@
-
-
 export const USERS = [
   { username: "amyrobson" },
   { username: "juliusomo" },
@@ -28,8 +26,9 @@ export const INITIAL_COMMENTS = [
   },
   {
     id: 3,
-    content:
-      "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+    // content:
+    //   "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+    content: "hello",
     createdAt: "1 week ago",
     score: 5,
     username: "ramsesmiron",

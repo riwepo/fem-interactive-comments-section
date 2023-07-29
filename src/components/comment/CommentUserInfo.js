@@ -9,7 +9,7 @@ function CommentUserInfo({ className, user, isYou }) {
     <div className={`${className} ${classes.container}`}>
       <Avatar className={classes.avatar} username={user.username} />
       <p>{user.username}</p>
-      {isYou && <p>YOU</p>}
+      {isYou && <p className={classes.isYou}>YOU</p>}
     </div>
   );
 }

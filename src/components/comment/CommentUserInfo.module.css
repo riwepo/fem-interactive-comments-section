@@ -5,3 +5,9 @@
   gap: 1rem;
   /* background-color: yellow; */
 }
+
+.isYou {
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  background-color: var(--moderate-blue-color);
+  color: var(--white-color);
+}
