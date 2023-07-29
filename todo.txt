@@ -1,5 +1,5 @@
 
-add leading name in reply
+add leading name in reply - difficult to style
 implement delete
 implement edit
 tidy up styling
