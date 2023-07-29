@@ -5,7 +5,7 @@ import NewCommentForm from "./NewCommentForm";
 
 import classes from "./CommentAndReply.module.css";
 
-function CommentAndReply({ comment }) {
+function CommentAndReply({ comment, parentComment }) {
   const [isReplying, setIsReplying] = useState(false);
   const createReplyClickHandler = () => {
     setIsReplying((current) => !current);
@@ -18,7 +18,8 @@ function CommentAndReply({ comment }) {
       <Comment comment={comment} onCreateReplyClick={createReplyClickHandler} />
       {isReplying && (
         <NewCommentForm
-          replyToCommentId={comment.id}
+          replyToCommentId={parentComment.id}
+          replyToUsername={comment.user.username}
           onSubmit={submitCommentHandler}
         />
       )}

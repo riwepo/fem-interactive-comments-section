@@ -9,7 +9,7 @@ import { CommentsContext } from "../context/comments-context";
 
 import classes from "./NewCommentForm.module.css";
 
-function NewCommentForm({ replyToCommentId, onSubmit }) {
+function NewCommentForm({ replyToCommentId, replyToUsername, onSubmit }) {
   const currentUserContext = useContext(CurrentUserContext);
   const commentsContext = useContext(CommentsContext);
 
@@ -24,6 +24,7 @@ function NewCommentForm({ replyToCommentId, onSubmit }) {
     commentsContext.addCommment(
       currentUserContext.username,
       replyToCommentId,
+      replyToUsername,
       enteredText
     );
     onSubmit();

@@ -32,5 +32,6 @@ export function addComment(
     replyToUsername: replyToUsername,
   };
   const newCommentList = [...comments, newComment];
+
   return newCommentList;
 }
