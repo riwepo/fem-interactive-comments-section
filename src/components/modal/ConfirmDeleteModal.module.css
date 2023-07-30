@@ -22,8 +22,10 @@
 .button {
 }
 
-.button .buttonNo {
+.button.buttonNo {
+  background-color: var(--grayish-blue-color);
 }
 
-.button .buttonYes {
+.button.buttonYes {
+  background-color: var(--soft-red-color);
 }
