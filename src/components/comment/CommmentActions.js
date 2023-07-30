@@ -6,7 +6,13 @@ import { ReactComponent as IconEdit } from "../../images/icon-edit.svg";
 
 import classes from "./CommentActions.module.css";
 
-function CommentActions({ className, isYou, onCreateReplyClick }) {
+function CommentActions({
+  className,
+  isYou,
+  onCreateReplyClick,
+  onRequestDeleteClick,
+  onEditClick,
+}) {
   return (
     <div className={`${className} ${classes.container}`}>
       {!isYou && (
@@ -20,11 +26,17 @@ function CommentActions({ className, isYou, onCreateReplyClick }) {
       )}
       {isYou && (
         <div className={classes.buttonContainer}>
-          <button className={`${classes.button} ${classes.buttonDelete}`}>
+          <button
+            className={`${classes.button} ${classes.buttonDelete}`}
+            onClick={onRequestDeleteClick}
+          >
             <IconDelete className={classes.iconDelete} />
             <p>Delete</p>
           </button>
-          <button className={`${classes.button} ${classes.buttonEdit}`}>
+          <button
+            className={`${classes.button} ${classes.buttonEdit}`}
+            onClick={onEditClick}
+          >
             <IconEdit className={classes.iconEdit} />
             <p>Edit</p>
           </button>

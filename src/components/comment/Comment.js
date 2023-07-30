@@ -13,6 +13,12 @@ function Comment({ comment, onCreateReplyClick }) {
   const userIsCurrentUser = currentUser.username === comment.user.username;
   const votePlusClickHandler = () => {};
   const voteMinusClickHandler = () => {};
+  const requestDeleteClickHandler = () => {
+    console.log("request delete");
+  };
+  const editClickHandler = () => {
+    console.log("edit");
+  };
 
   return (
     <Card className={classes.card}>
@@ -41,6 +47,8 @@ function Comment({ comment, onCreateReplyClick }) {
           className={classes.actions}
           isYou={userIsCurrentUser}
           onCreateReplyClick={onCreateReplyClick}
+          onRequestDeleteClick={requestDeleteClickHandler}
+          onEditClick={editClickHandler}
         />
       </div>
     </Card>
