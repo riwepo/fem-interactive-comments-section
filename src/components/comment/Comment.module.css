@@ -23,6 +23,10 @@
   margin: 0.5rem;
 }
 
+.replyName {
+  font-weight: 500;
+  color: var(--moderate-blue-color);
+}
 .content {
   grid-row: 2;
   grid-column-start: 1;

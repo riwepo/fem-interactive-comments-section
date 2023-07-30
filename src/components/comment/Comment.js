@@ -23,7 +23,14 @@ function Comment({ comment, onCreateReplyClick }) {
           user={comment.user}
         />
         <p className={classes.createdAt}>{comment.createdAt}</p>
-        <p className={classes.content}>{comment.content}</p>
+        <p className={classes.content}>
+          {comment.replyToUsername && (
+            <span
+              className={classes.replyName}
+            >{`@${comment.replyToUsername} `}</span>
+          )}
+          {comment.content}
+        </p>
         <CommentVote
           className={classes.vote}
           count={comment.score}
