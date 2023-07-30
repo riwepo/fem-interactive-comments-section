@@ -1,5 +1,5 @@
 
-implement delete
-implement edit
+implement delete - API
+implement edit - API
 tidy up styling
 implement desktop styling
