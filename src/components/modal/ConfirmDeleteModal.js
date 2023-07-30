@@ -15,15 +15,15 @@ function ConfirmDeleteModal({ onConfirm }) {
       </p>
       <div className={classes.buttonContainer}>
         <Button
-          className={classes.buttonNo}
-          onClick={onConfirm}
+          className={`${classes.button} ${classes.buttonNo}`}
+          onClick={onConfirm.bind(this, false)}
           disabled={false}
         >
           NO, CANCEL
         </Button>
         <Button
-          className={classes.buttonYes}
-          onClick={onConfirm}
+          className={`${classes.button} ${classes.buttonNo}`}
+          onClick={onConfirm.bind(this, true)}
           disabled={false}
         >
           YES, DELETE

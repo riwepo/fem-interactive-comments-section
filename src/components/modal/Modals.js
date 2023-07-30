@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Backdrop from "./Backdrop";
-import SuccessModal from "./SuccessModal";
+import ConfirmDeleteModel from "./ConfirmDeleteModal";
 
-function Modals({ email, onDismiss }) {
+function Modals({ onConfirm }) {
   return (
     <>
       {ReactDOM.createPortal(
@@ -12,7 +12,7 @@ function Modals({ email, onDismiss }) {
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <SuccessModal email={email} onDismiss={onDismiss} />,
+        <ConfirmDeleteModel onConfirm={onConfirm} />,
         document.getElementById("modal-root")
       )}
     </>
