@@ -1,25 +1,35 @@
 .container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
   z-index: 100;
   background-color: white;
-  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 6rem 2rem 2rem 2rem;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
 }
 
 .heading {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .buttonContainer {
-}
-
-.button {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .button.buttonNo {
