@@ -22,7 +22,7 @@ function ConfirmDeleteModal({ onConfirm }) {
           NO, CANCEL
         </Button>
         <Button
-          className={`${classes.button} ${classes.buttonNo}`}
+          className={`${classes.button} ${classes.buttonYes}`}
           onClick={onConfirm.bind(this, true)}
           disabled={false}
         >
