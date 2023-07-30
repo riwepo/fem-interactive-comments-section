@@ -13,6 +13,9 @@ import classes from "./Comment.module.css";
 function Comment({ comment, onCreateReplyClick }) {
   const [isRequestingDelete, setIsRequestingDelete] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [enteredContent, setEnteredContent] = useState("");
+  const [isEnteredContentValid, setIsEnteredContentValid] = useState(true);
+
   const currentUser = useContext(CurrentUserContext);
   const userIsCurrentUser = currentUser.username === comment.user.username;
   const confirmDeleteHandler = (confirm) => {
@@ -27,7 +30,20 @@ function Comment({ comment, onCreateReplyClick }) {
     setIsRequestingDelete(true);
   };
   const editClickHandler = () => {
+    setEnteredContent(comment.content);
     setIsEditing((current) => !current);
+  };
+
+  const contentChangeHandler = (event) => {
+    const localContent = event.target.value;
+    setEnteredContent(localContent);
+    setIsEnteredContentValid(localContent !== "");
+  };
+
+  const submitContentHandler = (event) => {
+    event.preventDefault();
+    // send new content to API
+    setIsEditing(false);
   };
 
   return (
@@ -52,14 +68,23 @@ function Comment({ comment, onCreateReplyClick }) {
             </p>
           )}
           {isEditing && (
-            <div className={classes.editingContainer}>
-              <textarea className={classes.textarea}>
-                {comment.content}
-              </textarea>
-              <Button className={classes.button} disabled={true} onClick={null}>
+            <form
+              className={classes.editingForm}
+              onSubmit={submitContentHandler}
+            >
+              <textarea
+                className={classes.textarea}
+                value={enteredContent}
+                onChange={contentChangeHandler}
+              />
+              <Button
+                className={classes.button}
+                disabled={!isEnteredContentValid}
+                onClick={null}
+              >
                 UPDATE
               </Button>
-            </div>
+            </form>
           )}
 
           <CommentVote
