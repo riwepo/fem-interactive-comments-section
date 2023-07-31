@@ -26,10 +26,11 @@ export function addComment(
     id: nextId,
     content: content,
     createdAt: new Date().toUTCString(),
-    score: 0,
     username: author,
     replyToCommentId: replyToCommentId,
     replyToUsername: replyToUsername,
+    upvoters: [],
+    downvoters: [],
   };
   const newCommentList = [...comments, newComment];
 
