@@ -12,7 +12,8 @@ export function transformCommentsToThreads(comments) {
   const withReplies = topLevelTransformed.map((x) => {
     const replies = comments.filter((y) => y.replyToCommentId === x.id);
     // lowest id first
-    const sortedReplies = replies.sort((a, b) => a.score - b.score);
+    const sortedReplies = replies.sort((a, b) => a.id - b.id);
+    console.log("sortedReplies", sortedReplies);
     const transformedReplies = sortedReplies.map(transform);
     const result = { ...x, replies: transformedReplies };
     return result;
