@@ -62,7 +62,7 @@ function Comment({ comment, onCreateReplyClick }) {
             isYou={userIsCurrentUser}
             user={comment.user}
           />
-          <p className={classes.createdAt}>{comment.createdAt}</p>
+          <p className={classes.howOld}>{comment.howOld}</p>
           {!isEditing && (
             <p className={classes.content}>
               {comment.replyToUsername && (
