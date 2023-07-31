@@ -6,6 +6,7 @@ import {
   addComment as addCommentApi,
   deleteComment as deleteCommentApi,
   updateComment as updateCommentApi,
+  updateCommentVotes as updateCommentVotesApi,
 } from "../api/comment-api";
 
 export const CommentsContext = React.createContext({
@@ -20,6 +21,9 @@ export const CommentsContext = React.createContext({
 
   // function to update a comment
   updateCommment: (id, content) => {},
+
+  // function to update comment votes
+  updateCommentVotes: (id, currentUser, isUpvote) => {},
 
   // comment thread data
   getCommentThreads: (currentUsername) => {},
@@ -50,6 +54,16 @@ export default function CommentsContextProvider({ children }) {
     setCommments(updatedComments);
   };
 
+  const updateCommentVotes = (id, currentUser, isUpvote) => {
+    const updatedComments = updateCommentVotesApi(
+      comments,
+      id,
+      currentUser,
+      isUpvote
+    );
+    setCommments(updatedComments);
+  };
+
   // utility function to transform flat data to threads
   const getCommentThreads = (currentUserName) => {
     return transformCommentsToThreads(new Date(), comments, currentUserName);
@@ -62,6 +76,7 @@ export default function CommentsContextProvider({ children }) {
         addCommment: addComment,
         deleteCommment: deleteComment,
         updateCommment: updateComment,
+        updateCommentVotes: updateCommentVotes,
         getCommentThreads: getCommentThreads,
       }}
     >

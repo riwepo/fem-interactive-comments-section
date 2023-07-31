@@ -29,8 +29,12 @@ function Comment({ comment, onCreateReplyClick }) {
     }
     setIsRequestingDelete(false);
   };
-  const votePlusClickHandler = () => {};
-  const voteMinusClickHandler = () => {};
+  const votePlusClickHandler = () => {
+    commentsContext.updateCommentVotes(comment.id, currentUser, true);
+  };
+  const voteMinusClickHandler = () => {
+    commentsContext.updateCommentVotes(comment.id, currentUser, false);
+  };
   const requestDeleteClickHandler = () => {
     setIsRequestingDelete(true);
   };

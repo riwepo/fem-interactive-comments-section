@@ -67,3 +67,41 @@ export function updateComment(comments, id, content) {
 
   return newCommentList;
 }
+
+export function updateCommentVotes(comments, id, username, isUpvote) {
+  console.log("username", username);
+  const matchingIdComments = comments.filter((x) => x.id === id);
+  let newCommentList = comments;
+  if (matchingIdComments.length === 1) {
+    const existingComment = matchingIdComments[0];
+    console.log(existingComment);
+    const otherUpvoters = existingComment.upvoters.filter(
+      (x) => x !== username
+    );
+    const otherDownvoters = existingComment.downvoters.filter(
+      (x) => x !== username
+    );
+    console.log(
+      "other upvoters",
+      otherUpvoters,
+      "other downvoters",
+      otherDownvoters
+    );
+
+    let upvoters = otherUpvoters;
+    let downvoters = otherDownvoters;
+    if (isUpvote) {
+      upvoters.push(username);
+    } else {
+      downvoters.push(username);
+    }
+
+    console.log("upvoters", upvoters, "downvoters", downvoters);
+
+    const updatedComment = { ...existingComment, upvoters, downvoters };
+    const otherComments = comments.filter((x) => x.id !== id);
+    newCommentList = [...otherComments, updatedComment];
+  }
+
+  return newCommentList;
+}
