@@ -25,7 +25,7 @@ export function addComment(
   const newComment = {
     id: nextId,
     content: content,
-    createdAt: "today",
+    createdAt: new Date().toUTCString(),
     score: 0,
     username: author,
     replyToCommentId: replyToCommentId,
