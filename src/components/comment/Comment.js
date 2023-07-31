@@ -6,7 +6,9 @@ import CommentVote from "./CommentVote";
 import CommentActions from "./CommmentActions";
 import Modals from "../modal/Modals";
 import Button from "../ui/Button";
+
 import { CurrentUserContext } from "../../context/current-user-context";
+import { CommentsContext } from "../../context/comments-context";
 
 import classes from "./Comment.module.css";
 
@@ -18,9 +20,13 @@ function Comment({ comment, onCreateReplyClick }) {
 
   const currentUser = useContext(CurrentUserContext);
   const userIsCurrentUser = currentUser.username === comment.user.username;
+
+  const commentsContext = useContext(CommentsContext);
+
   const confirmDeleteHandler = (confirm) => {
     if (confirm) {
       // delete the comment
+      commentsContext.deleteCommment(comment.id);
     }
     setIsRequestingDelete(false);
   };

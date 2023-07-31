@@ -35,3 +35,8 @@ export function addComment(
 
   return newCommentList;
 }
+
+export function deleteComment(comments, id) {
+  const newCommentList = comments.filter((x) => x.id !== id);
+  return newCommentList;
+}
