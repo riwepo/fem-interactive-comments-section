@@ -25,7 +25,6 @@ function Comment({ comment, onCreateReplyClick }) {
 
   const confirmDeleteHandler = (confirm) => {
     if (confirm) {
-      // delete the comment
       commentsContext.deleteCommment(comment.id);
     }
     setIsRequestingDelete(false);
@@ -95,7 +94,9 @@ function Comment({ comment, onCreateReplyClick }) {
 
           <CommentVote
             className={classes.vote}
-            count={comment.score}
+            score={comment.score}
+            isUpvoteEnabled={comment.isUpvoteEnabled}
+            isDownvoteEnabled={comment.isDownvoteEnabled}
             onPlusClick={votePlusClickHandler}
             onMinusClick={voteMinusClickHandler}
           />

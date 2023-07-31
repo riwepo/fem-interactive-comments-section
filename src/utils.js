@@ -3,35 +3,51 @@ export function getAvatarPath(username) {
 }
 
 // transform flat comments data to threads
-export function transformCommentsToThreads(now, comments) {
+export function transformCommentsToThreads(now, comments, currentUsername) {
   const topLevelComments = comments.filter((c) => !c.replyToCommentId);
   // highest score first
   const sortedTopLevel = topLevelComments.sort((a, b) => b.score - a.score);
   // console.log("sortedTopLevel", sortedTopLevel);
-  const topLevelTransformed = sortedTopLevel.map((x) => transform(now, x));
+  const topLevelTransformed = sortedTopLevel.map((x) =>
+    transform(now, currentUsername, x)
+  );
   const withReplies = topLevelTransformed.map((x) => {
     const replies = comments.filter((y) => y.replyToCommentId === x.id);
     // lowest id first
     const sortedReplies = replies.sort((a, b) => a.id - b.id);
-    const transformedReplies = sortedReplies.map((x) => transform(now, x));
+    const transformedReplies = sortedReplies.map((x) =>
+      transform(now, currentUsername, x)
+    );
     const result = { ...x, replies: transformedReplies };
     return result;
   });
+  console.log(withReplies);
   return withReplies;
 }
 
 // turn user into object
 // add empty replies array
 // convert createdAt timestamp to howOld descriptive string
-function transform(now, comment) {
+// convert voters to score
+function transform(now, currentUsername, comment) {
+  // console.log(comment);
   const commentDate = new Date(Date.parse(comment.createdAt));
-  console.log(commentDate.toUTCString());
   const howOld = timeDifference(now, commentDate);
+  const isUpvoteEnabled =
+    comment.username !== currentUsername &&
+    comment.upvoters.filter((x) => x === currentUsername).length === 0;
+  const isDownvoteEnabled =
+    comment.username !== currentUsername &&
+    comment.downvoters.filter((x) => x === currentUsername).length === 0;
+  const score = comment.upvoters.length - comment.downvoters.length;
   const result = {
     ...comment,
     howOld,
     user: { username: comment.username },
     replies: [],
+    isUpvoteEnabled,
+    isDownvoteEnabled,
+    score,
   };
   delete result.createdAt;
   delete result.username;

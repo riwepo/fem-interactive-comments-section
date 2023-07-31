@@ -22,7 +22,7 @@ export const CommentsContext = React.createContext({
   updateCommment: (id, content) => {},
 
   // comment thread data
-  getCommentThreads: () => {},
+  getCommentThreads: (currentUsername) => {},
 });
 
 export default function CommentsContextProvider({ children }) {
@@ -51,8 +51,8 @@ export default function CommentsContextProvider({ children }) {
   };
 
   // utility function to transform flat data to threads
-  const getCommentThreads = () => {
-    return transformCommentsToThreads(new Date(), comments);
+  const getCommentThreads = (currentUserName) => {
+    return transformCommentsToThreads(new Date(), comments, currentUserName);
   };
 
   return (

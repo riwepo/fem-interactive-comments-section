@@ -13,7 +13,7 @@
   margin: 0.5rem;
 }
 
-.count {
+.score {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--moderate-blue-color);
@@ -31,7 +31,11 @@
   cursor: pointer;
 }
 
-.iconPlus {
+.button:disabled {
+  cursor: default;
+}
+
+.icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -40,23 +44,13 @@
   stroke: var(--light-grayish-blue-color);
 }
 
-.iconPlus:hover,
-.iconPlus:active {
+.icon:hover,
+.icon:active {
   fill: var(--moderate-blue-color);
   stroke: var(--moderate-blue-color);
 }
 
-.iconMinus {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  fill: var(--light-grayish-blue-color);
-  stroke: var(--light-grayish-blue-color);
-}
-
-.iconMinus:hover,
-.iconMinus:active {
-  fill: var(--moderate-blue-color);
-  stroke: var(--moderate-blue-color);
+.icon.iconDisabled {
+  fill: grey;
+  stroke: grey;
 }
