@@ -6,7 +6,7 @@ export function getAvatarPath(username) {
 export function transformCommentsToThreads(comments) {
   const topLevelComments = comments.filter((c) => !c.replyToCommentId);
   const sortedTopLevel = topLevelComments.sort((a, b) => b.score - a.score);
-  console.log("sortedTopLevel", sortedTopLevel);
+  // console.log("sortedTopLevel", sortedTopLevel);
   const topLevelTransformed = sortedTopLevel.map(transform);
   const withReplies = topLevelTransformed.map((x) => {
     const replies = comments.filter((y) => y.replyToCommentId === x.id);
