@@ -52,7 +52,7 @@ export default function CommentsContextProvider({ children }) {
 
   // utility function to transform flat data to threads
   const getCommentThreads = () => {
-    return transformCommentsToThreads(comments);
+    return transformCommentsToThreads(new Date(), comments);
   };
 
   return (
