@@ -1,5 +1,7 @@
 
-implement delete - API
-implement edit - API
+order top level comments by score
+order replies by id
+implement date stamps
+implement local storage, promise API
 tidy up styling
 implement desktop styling
