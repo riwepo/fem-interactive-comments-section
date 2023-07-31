@@ -1,5 +1,4 @@
 
-implement date stamps
 implement voting
 implement local storage, promise API
 tidy up styling
