@@ -7,7 +7,7 @@
  * @param {*} replyToCommentId comment we are replying to
  * @param {*} replyToUsername username we are replying to
  * @param {*} content content of the comment
- * @returns
+ * @returns new list of comments
  */
 export function addComment(
   comments,
@@ -36,7 +36,33 @@ export function addComment(
   return newCommentList;
 }
 
+/**
+ *
+ * @param {*} comments  original data
+ * @param {*} id  id of comment to delete
+ * @returns new list of comments
+ */
 export function deleteComment(comments, id) {
   const newCommentList = comments.filter((x) => x.id !== id);
+  return newCommentList;
+}
+
+/**
+ *
+ * @param {*} comments original data
+ * @param {*} id id of comment to update
+ * @param {*} content updated content of the comment
+ * @returns new list of comments
+ */
+export function updateComment(comments, id, content) {
+  const matchingIdComments = comments.filter((x) => x.id === id);
+  let newCommentList = comments;
+  if (matchingIdComments.length === 1) {
+    const existingComment = matchingIdComments[0];
+    const updatedComment = { ...existingComment, content };
+    const otherComments = comments.filter((x) => x.id !== id);
+    newCommentList = [...otherComments, updatedComment];
+  }
+
   return newCommentList;
 }

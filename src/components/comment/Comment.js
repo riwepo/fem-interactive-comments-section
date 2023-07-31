@@ -48,7 +48,7 @@ function Comment({ comment, onCreateReplyClick }) {
 
   const submitContentHandler = (event) => {
     event.preventDefault();
-    // send new content to API
+    commentsContext.updateCommment(comment.id, enteredContent);
     setIsEditing(false);
   };
 

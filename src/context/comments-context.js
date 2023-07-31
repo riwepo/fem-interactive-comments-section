@@ -5,6 +5,7 @@ import { transformCommentsToThreads } from "../utils";
 import {
   addComment as addCommentApi,
   deleteComment as deleteCommentApi,
+  updateComment as updateCommentApi,
 } from "../api/comment-api";
 
 export const CommentsContext = React.createContext({
@@ -16,6 +17,9 @@ export const CommentsContext = React.createContext({
 
   // function to delete a comment
   deleteCommment: (id) => {},
+
+  // function to update a comment
+  updateCommment: (id, content) => {},
 
   // comment thread data
   getCommentThreads: () => {},
@@ -41,6 +45,11 @@ export default function CommentsContextProvider({ children }) {
     setCommments(updatedComments);
   };
 
+  const updateComment = (id, content) => {
+    const updatedComments = updateCommentApi(comments, id, content);
+    setCommments(updatedComments);
+  };
+
   // utility function to transform flat data to threads
   const getCommentThreads = () => {
     return transformCommentsToThreads(comments);
@@ -52,6 +61,7 @@ export default function CommentsContextProvider({ children }) {
         comments: comments,
         addCommment: addComment,
         deleteCommment: deleteComment,
+        updateCommment: updateComment,
         getCommentThreads: getCommentThreads,
       }}
     >
