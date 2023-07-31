@@ -1,6 +1,4 @@
 
-order top level comments by score
-order replies by id
 implement date stamps
 implement voting
 implement local storage, promise API
