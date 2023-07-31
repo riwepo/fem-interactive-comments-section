@@ -14,8 +14,8 @@ export const INITIAL_COMMENTS = [
     username: "amyrobson",
     replyToCommentId: null,
     replyToUsername: null,
-    upvoters: ["juliusomo", "maxblagun", "ramsesmiron"],
-    downvoters: [],
+    votes: [{ user: "juliusomo", vote: 1}, {user: "maxblagun", vote: 1}, {user: "ramsesmiron", vote: 1}],
+    
   },
   {
     id: 2,
@@ -25,8 +25,8 @@ export const INITIAL_COMMENTS = [
     username: "maxblagun",
     replyToCommentId: null,
     replyToUsername: null,
-    upvoters: ["juliusomo", "maxblagun", "ramsesmiron"],
-    downvoters: [],
+    votes: [{ user: "amyrobson", vote: 1},{ user: "juliusomo", vote: 1}, {user: "ramsesmiron", vote: 1}],
+    
   },
   {
     id: 3,
@@ -36,8 +36,8 @@ export const INITIAL_COMMENTS = [
     username: "ramsesmiron",
     replyToCommentId: 2,
     replyToUsername: "maxblagun",
-    upvoters: ["juliusomo", "maxblagun", "ramsesmiron"],
-    downvoters: [],
+    votes: [{ user: "amyrobson", vote: 1},{ user: "juliusomo", vote: 1}, {user: "maxblagun", vote: 1}],
+    
   },
   {
     id: 4,
@@ -47,7 +47,6 @@ export const INITIAL_COMMENTS = [
     username: "juliusomo",
     replyToCommentId: 2,
     replyToUsername: "maxblagun",
-    upvoters: ["juliusomo", "maxblagun", "ramsesmiron"],
-    downvoters: [],
-  },
+    votes: [{ user: "amyrobson", vote: 1}, {user: "maxblagun", vote: 1}, {user: "ramsesmiron", vote: 1}],
+    
 ];
