@@ -2,6 +2,7 @@
 order top level comments by score
 order replies by id
 implement date stamps
+implement voting
 implement local storage, promise API
 tidy up styling
 implement desktop styling
