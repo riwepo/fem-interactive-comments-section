@@ -54,3 +54,12 @@
   fill: grey;
   stroke: grey;
 }
+
+/* media query for desktop */
+@media (min-width: 768px) {
+  .container {
+    width: 2rem;
+    height: 5rem;
+    flex-direction: column;
+  }
+}
