@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fem-interactive-comments-section/static/css/main.e14f3d7e.css",
-    "main.js": "/fem-interactive-comments-section/static/js/main.c79c191d.js",
+    "main.js": "/fem-interactive-comments-section/static/js/main.5484c38c.js",
     "static/js/787.22f17c45.chunk.js": "/fem-interactive-comments-section/static/js/787.22f17c45.chunk.js",
     "index.html": "/fem-interactive-comments-section/index.html",
     "static/media/icon-plus.svg": "/fem-interactive-comments-section/static/media/icon-plus.be58cc93ff8507e5bd3a305c3e06ee69.svg",
@@ -10,11 +10,11 @@
     "static/media/icon-minus.svg": "/fem-interactive-comments-section/static/media/icon-minus.2e4c3e1fc8250cce992bd4a61a6c6b2d.svg",
     "static/media/icon-delete.svg": "/fem-interactive-comments-section/static/media/icon-delete.8a4b7e9a7e11748d23ef68ae12feb18b.svg",
     "main.e14f3d7e.css.map": "/fem-interactive-comments-section/static/css/main.e14f3d7e.css.map",
-    "main.c79c191d.js.map": "/fem-interactive-comments-section/static/js/main.c79c191d.js.map",
+    "main.5484c38c.js.map": "/fem-interactive-comments-section/static/js/main.5484c38c.js.map",
     "787.22f17c45.chunk.js.map": "/fem-interactive-comments-section/static/js/787.22f17c45.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e14f3d7e.css",
-    "static/js/main.c79c191d.js"
+    "static/js/main.5484c38c.js"
   ]
 }
