@@ -10,6 +10,7 @@ import classes from "./CommentThreadList.module.css";
 function CommentThreadList() {
   const currentUserContext = useContext(CurrentUserContext);
   const commentsContext = useContext(CommentsContext);
+
   const commentThreads = commentsContext.getCommentThreads(
     currentUserContext.username
   );

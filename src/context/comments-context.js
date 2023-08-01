@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import { INITIAL_COMMENTS } from "../data/dummyData";
 import { transformCommentsToThreads } from "../utils";
 import {
+  initialise as initialiseApi,
+  getComments as getCommentsApi,
   addComment as addCommentApi,
   deleteComment as deleteCommentApi,
   updateComment as updateCommentApi,
@@ -10,7 +11,7 @@ import {
 } from "../api/comment-api";
 
 export const CommentsContext = React.createContext({
-  // flat comments data
+  // flat comment data
   comments: [{}],
 
   // function to add a comment
@@ -25,48 +26,48 @@ export const CommentsContext = React.createContext({
   // function to update comment votes
   updateCommentVotes: (id, currentUser, isUpvote) => {},
 
-  // comment thread data
-  getCommentThreads: (currentUsername) => {},
+  // helper function to convert flat comments to thread data
+  getCommentThreads: (comments, currentUsername) => {},
 });
 
 export default function CommentsContextProvider({ children }) {
-  // comments as flat data
-  const [comments, setCommments] = useState(INITIAL_COMMENTS);
+  const [comments, setComments] = useState([]);
 
   const addComment = (author, replyToCommentId, replyToUsername, content) => {
-    const updatedComments = addCommentApi(
-      comments,
+    const _comments = addCommentApi(
       author,
       replyToCommentId,
       replyToUsername,
       content
     );
-    setCommments(updatedComments);
+    setComments(_comments);
   };
 
   const deleteComment = (id) => {
-    const updatedComments = deleteCommentApi(comments, id);
-    setCommments(updatedComments);
+    const _comments = deleteCommentApi(id);
+    setComments(_comments);
   };
 
   const updateComment = (id, content) => {
-    const updatedComments = updateCommentApi(comments, id, content);
-    setCommments(updatedComments);
+    const _comments = updateCommentApi(id, content);
+    setComments(_comments);
   };
 
   const updateCommentVotes = (id, currentUser, isUpvote) => {
-    const updatedComments = updateCommentVotesApi(
-      comments,
-      id,
-      currentUser,
-      isUpvote
-    );
-    setCommments(updatedComments);
+    const _comments = updateCommentVotesApi(id, currentUser, isUpvote);
+    setComments(_comments);
   };
 
-  // utility function to transform flat data to threads
+  // get comment data as threads
   const getCommentThreads = (currentUserName) => {
-    return transformCommentsToThreads(new Date(), comments, currentUserName);
+    initialiseApi();
+    const comments = getCommentsApi();
+    const commentThreads = transformCommentsToThreads(
+      new Date(),
+      comments,
+      currentUserName
+    );
+    return commentThreads;
   };
 
   return (

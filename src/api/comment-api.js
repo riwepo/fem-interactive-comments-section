@@ -1,21 +1,41 @@
-// adds a new comment and returns the new comment list
+import { INITIAL_COMMENTS } from "./dummyData";
+
+const LOCAL_STORE_COMMENTS_KEY = "COMMENTS_DATA";
+
+function saveComments(comments) {
+  const commentStr = JSON.stringify(comments);
+  localStorage.setItem(LOCAL_STORE_COMMENTS_KEY, commentStr);
+  return comments;
+}
+
+export function getComments() {
+  const commentStr = localStorage.getItem(LOCAL_STORE_COMMENTS_KEY);
+  if (commentStr === null) {
+    return null;
+  }
+  const comments = JSON.parse(commentStr);
+  return comments;
+}
+
+export function initialise() {
+  // if there is nothing in local storage, put the dummy data in there
+  let comments = getComments();
+  if (comments === null) {
+    saveComments(INITIAL_COMMENTS);
+  }
+}
 
 /**
  *
- * @param {*} comments original data
  * @param {*} author author of new comment
  * @param {*} replyToCommentId comment we are replying to
  * @param {*} replyToUsername username we are replying to
  * @param {*} content content of the comment
  * @returns new list of comments
  */
-export function addComment(
-  comments,
-  author,
-  replyToCommentId,
-  replyToUsername,
-  content
-) {
+export function addComment(author, replyToCommentId, replyToUsername, content) {
+  const comments = getComments();
+
   // the next id will be one more than the current max
   const nextId =
     Math.max.apply(
@@ -35,28 +55,28 @@ export function addComment(
   };
   const newCommentList = [...comments, newComment];
 
-  return newCommentList;
+  return saveComments(newCommentList);
 }
 
 /**
  *
- * @param {*} comments  original data
  * @param {*} id  id of comment to delete
  * @returns new list of comments
  */
-export function deleteComment(comments, id) {
+export function deleteComment(id) {
+  const comments = getComments();
   const newCommentList = comments.filter((x) => x.id !== id);
-  return newCommentList;
+  return saveComments(newCommentList);
 }
 
 /**
  *
- * @param {*} comments original data
  * @param {*} id id of comment to update
  * @param {*} content updated content of the comment
  * @returns new list of comments
  */
-export function updateComment(comments, id, content) {
+export function updateComment(id, content) {
+  const comments = getComments();
   let newCommentList = comments;
 
   // find comments for the comment id
@@ -73,18 +93,19 @@ export function updateComment(comments, id, content) {
     newCommentList = [...otherComments, updatedComment];
   }
 
-  return newCommentList;
+  return saveComments(newCommentList);
 }
 
 /**
  *
- * @param {*} comments existing comment set, because we are simulating
  * @param {*} id id of the comment to vote on
  * @param {*} username username of the guy voting
  * @param {*} isUpvote true if upvote, otherwise downvote
- * @returns
+ * @returns new comment list
  */
-export function updateCommentVotes(comments, id, username, isUpvote) {
+export function updateCommentVotes(id, username, isUpvote) {
+  const comments = getComments();
+
   let currentUsernameVoteValue = 0;
   let newCommentList = comments;
   let updatedVotes = [];
@@ -138,5 +159,7 @@ export function updateCommentVotes(comments, id, username, isUpvote) {
     newCommentList = [...otherComments, updatedComment];
   }
 
-  return newCommentList;
+  console.log(newCommentList);
+
+  return saveComments(newCommentList);
 }
