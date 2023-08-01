@@ -10,11 +10,13 @@ function Replies({ comments, parentComment }) {
       <div className={classes.verticalLine}></div>
       <ul className={classes.repliesContainer}>
         {comments.map((comment) => (
-          <CommentAndReply
-            key={comment.id}
-            comment={comment}
-            parentComment={parentComment}
-          />
+          <li>
+            <CommentAndReply
+              key={comment.id}
+              comment={comment}
+              parentComment={parentComment}
+            />
+          </li>
         ))}
       </ul>
     </div>
