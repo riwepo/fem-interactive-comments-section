@@ -4,7 +4,7 @@ import Card from "../ui/Card";
 import CommentUserInfo from "./CommentUserInfo";
 import CommentVote from "./CommentVote";
 import CommentActions from "./CommmentActions";
-import Modals from "../modal/Modals";
+import ConfirmDeleteModalPortal from "../modal/ConfirmDeleteModal";
 import Button from "../ui/Button";
 
 import { CurrentUserContext } from "../../context/current-user-context";
@@ -58,7 +58,9 @@ function Comment({ comment, onCreateReplyClick }) {
 
   return (
     <>
-      {isRequestingDelete && <Modals onConfirm={confirmDeleteHandler} />}
+      {isRequestingDelete && (
+        <ConfirmDeleteModalPortal onConfirm={confirmDeleteHandler} />
+      )}
       <Card className={classes.card}>
         <div className={classes.commentContainer}>
           <CommentUserInfo
