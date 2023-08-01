@@ -82,6 +82,8 @@ Expressed diffrence between current time and a timetamp in years, months, days e
 
 Storing a timestamp as a UTC string and parsing it back out again.
 
+I learned <p> is not allowed as a child of <button> because <p> is block display and <button> is inline display and block is not allowed as a child of inline.
+
 ### Continued development
 
 Just contunue to make more complex react.js apps and get better and faster at doing it.
