@@ -21,15 +21,12 @@ function NewCommentForm({ replyToCommentId, replyToUsername, onSubmit }) {
   const submitHandler = (event) => {
     event.preventDefault();
     if (!isValid) return;
-    // todo style username color
-    const withReplyToUsername = replyToUsername
-      ? `@${replyToUsername} ${enteredText}`
-      : enteredText;
+
     commentsContext.addCommment(
       currentUserContext.username,
       replyToCommentId,
       replyToUsername,
-      withReplyToUsername
+      enteredText
     );
     onSubmit();
     setEnteredText("");
@@ -55,7 +52,7 @@ function NewCommentForm({ replyToCommentId, replyToUsername, onSubmit }) {
           className={classes.avatar}
           username={currentUserContext.username}
         />
-        <Button className={classes.button} disabled={!isValid}>
+        <Button className={classes.button} disabled={!isValid} onClick={null}>
           {buttonText}
         </Button>
       </form>
