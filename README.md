@@ -72,11 +72,18 @@ When dealing with images.
 If image is known at compile time, you can use import. Presumably Webpack packages it up in the package sent to the client's browser.
 If the image is dynamic and is only known at runtime, put the images in the 'public' folder. Find the path to the public folder at runtime using 'process.env.PUBLIC_URL'.
 
-I used useContext hook for the first time to store the current user.
+I used useContext hook for the first time to store the current user and the list of comments.
 
-Import SVG as ReactComponent, change fill property of SVG to 'currentColor' and you can style it in css.
+Imported SVG as ReactComponent, change fill property of SVG to 'currentColor' and you can style it in css.
 
-Style components by giving them a className property and passing classes thru.
+Style components by giving them a custom 'className' property and passing classes thru.
+
+I had trouble with the voting, it is a bit tricky.
+I made it so a user can only give 1 upvote or 1 downvote, and cant vote on their own comment.
+
+I had trouble with the comment/repsonse data structure. What happens when a user comments on a comment? It should probably be a recursive tree but that was a bit to hard. I ended up nesting all the comments under the top level comment.
+
+The logic to handle putting the username of the recipient before the comment is tricky. Is this part of the content, or is it added in by the UI? I ended up leaving it out while the user is creating/editing a comment (different to the specified design), and having the UI pre-pend it when the comment is displayed.
 
 ### Continued development
 
