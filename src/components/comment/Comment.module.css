@@ -73,8 +73,8 @@
 /* media query for desktop */
 @media (min-width: 768px) {
   .commentContainer {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 8% 25% 30% auto;
 
     /* debugging only */
     /* border: solid thin black; */
@@ -83,6 +83,7 @@
     grid-row-start: 1;
     grid-row-end: -1;
     grid-column: 1;
+    align-self: self-start;
   }
   .userInfo {
     grid-row: 1;
@@ -99,6 +100,7 @@
   .actions {
     grid-row: 1;
     grid-column: 4;
+    justify-self: flex-end;
 
     margin: 0.5rem;
   }
