@@ -12,6 +12,7 @@ This is a solution to the [Interactive comments section challenge on Frontend Me
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
+  - [Acknowledgements](#acknowledgements)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -77,6 +78,10 @@ Simplified modal portal by putting backdrop in the same component and putting it
 
 Stored comments in local storage.
 
+Expressed diffrence between current time and a timetamp in years, months, days etc.
+
+Storing a timestamp as a UTC string and parsing it back out again.
+
 ### Continued development
 
 Just contunue to make more complex react.js apps and get better and faster at doing it.
@@ -88,6 +93,11 @@ https://stackoverflow.com/questions/54519654/how-do-i-add-color-to-my-svg-image-
 
 Regarding displaying images from the public folder
 https://create-react-app.dev/docs/using-the-public-folder/
+
+### Acknowledgements
+
+Handy JavaScript function to express difference between two dates in years, months, weeks etc.
+https://stackoverflow.com/questions/1968167/difference-between-dates-in-javascript/1968175#1968175
 
 ## Author
 
