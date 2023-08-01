@@ -21,7 +21,7 @@ function CommentActions({
           onClick={onCreateReplyClick}
         >
           <IconReply className={classes.iconReply} />
-          <p>Reply</p>
+          <span>Reply</span>
         </button>
       )}
       {isYou && (
@@ -31,14 +31,14 @@ function CommentActions({
             onClick={onRequestDeleteClick}
           >
             <IconDelete className={classes.iconDelete} />
-            <p>Delete</p>
+            <span>Delete</span>
           </button>
           <button
             className={`${classes.button} ${classes.buttonEdit}`}
             onClick={onEditClick}
           >
             <IconEdit className={classes.iconEdit} />
-            <p>Edit</p>
+            <span>Edit</span>
           </button>
         </div>
       )}
