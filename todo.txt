@@ -1,5 +1,3 @@
-
-implement voting
 implement local storage, promise API
 tidy up styling
 implement desktop styling
