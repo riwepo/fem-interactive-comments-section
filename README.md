@@ -85,6 +85,8 @@ I had trouble with the comment/repsonse data structure. What happens when a user
 
 The logic to handle putting the username of the recipient before the comment is tricky. Is this part of the content, or is it added in by the UI? I ended up leaving it out while the user is creating/editing a comment (different to the specified design), and having the UI pre-pend it when the comment is displayed.
 
+Simplified modal portal by putting backdrop in the same component and putting it all in the one file.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
