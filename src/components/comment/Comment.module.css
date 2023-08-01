@@ -4,6 +4,8 @@
 .commentContainer {
   display: grid;
   align-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   /* debugging only */
   /* border: solid thin black; */
@@ -66,4 +68,45 @@
   justify-self: end;
 
   margin: 0.5rem;
+}
+
+/* media query for desktop */
+@media (min-width: 768px) {
+  .commentContainer {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    /* debugging only */
+    /* border: solid thin black; */
+  }
+  .vote {
+    grid-row-start: 1;
+    grid-row-end: -1;
+    grid-column: 1;
+  }
+  .userInfo {
+    grid-row: 1;
+    grid-column: 2;
+
+    margin: 0.5rem;
+  }
+  .howOld {
+    grid-row: 1;
+    grid-column: 3;
+
+    margin: 0.5rem;
+  }
+  .actions {
+    grid-row: 1;
+    grid-column: 4;
+
+    margin: 0.5rem;
+  }
+  .content {
+    grid-row: 2;
+    grid-column-start: 2;
+    grid-column-end: -1;
+
+    margin: 0.5rem;
+  }
 }
