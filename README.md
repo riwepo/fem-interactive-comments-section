@@ -14,7 +14,6 @@ This is a solution to the [Interactive comments section challenge on Frontend Me
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -37,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/riwepo/fem-interactive-comments-section](https://github.com/riwepo/fem-interactive-comments-section)
+- Live Site URL: [https://riwepo.github.io/fem-interactive-comments-section/](https://riwepo.github.io/fem-interactive-comments-section/)
 
 ## My process
 
@@ -46,14 +45,11 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
+- CSS Modules
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
@@ -71,37 +67,28 @@ Imported SVG as ReactComponent, change fill property of SVG to 'currentColor' an
 Style components by giving them a custom 'className' property and passing classes thru.
 
 I had trouble with the voting, it is a bit tricky.
-I made it so a user can only give 1 upvote or 1 downvote, and cant vote on their own comment.
+I made it so a user can only give 1 upvote or 1 downvote, and can't vote on their own comment.
 
-I had trouble with the comment/repsonse data structure. What happens when a user comments on a comment? It should probably be a recursive tree but that was a bit to hard. I ended up nesting all the comments under the top level comment.
+I had trouble with the comment/repsonse data structure. What happens when a user comments on a comment? It should probably be a recursive tree but that was a bit too hard. I ended up nesting all the comments under the top level comment.
 
 The logic to handle putting the username of the recipient before the comment is tricky. Is this part of the content, or is it added in by the UI? I ended up leaving it out while the user is creating/editing a comment (different to the specified design), and having the UI pre-pend it when the comment is displayed.
 
 Simplified modal portal by putting backdrop in the same component and putting it all in the one file.
 
+Stored comments in local storage.
+
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Just contunue to make more complex react.js apps and get better and faster at doing it.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+Regarding styling SVG react components -
+https://stackoverflow.com/questions/54519654/how-do-i-add-color-to-my-svg-image-in-react
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+Regarding displaying images from the public folder
+https://create-react-app.dev/docs/using-the-public-folder/
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@riwepo](https://www.frontendmentor.io/profile/riwepo)
