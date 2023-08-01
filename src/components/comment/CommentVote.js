@@ -19,6 +19,7 @@ function CommentVote({
         className={classes.button}
         onClick={onPlusClick}
         disabled={!isUpvoteEnabled}
+        title="upvote"
       >
         {isUpvoteEnabled && <IconPlus className={classes.icon} />}
         {!isUpvoteEnabled && (
@@ -30,6 +31,7 @@ function CommentVote({
         className={classes.button}
         onClick={onMinusClick}
         disabled={!isDownvoteEnabled}
+        title="downvote"
       >
         {isDownvoteEnabled && <IconMinus className={classes.icon} />}
         {!isDownvoteEnabled && (
