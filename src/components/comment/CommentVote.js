@@ -13,7 +13,6 @@ function CommentVote({
   onPlusClick,
   onMinusClick,
 }) {
-  console.log("CommentVote", isUpvoteEnabled, isDownvoteEnabled);
   return (
     <div className={`${className} ${classes.container}`}>
       <button

@@ -14,8 +14,11 @@ export const INITIAL_COMMENTS = [
     username: "amyrobson",
     replyToCommentId: null,
     replyToUsername: null,
-    votes: [{ user: "juliusomo", vote: 1}, {user: "maxblagun", vote: 1}, {user: "ramsesmiron", vote: 1}],
-    
+    votes: [
+      { username: "juliusomo", value: 1 },
+      { username: "maxblagun", value: 1 },
+      { username: "ramsesmiron", value: 1 },
+    ],
   },
   {
     id: 2,
@@ -25,8 +28,11 @@ export const INITIAL_COMMENTS = [
     username: "maxblagun",
     replyToCommentId: null,
     replyToUsername: null,
-    votes: [{ user: "amyrobson", vote: 1},{ user: "juliusomo", vote: 1}, {user: "ramsesmiron", vote: 1}],
-    
+    votes: [
+      { username: "amyrobson", value: 1 },
+      { username: "juliusomo", value: 1 },
+      { username: "ramsesmiron", value: 1 },
+    ],
   },
   {
     id: 3,
@@ -36,8 +42,11 @@ export const INITIAL_COMMENTS = [
     username: "ramsesmiron",
     replyToCommentId: 2,
     replyToUsername: "maxblagun",
-    votes: [{ user: "amyrobson", vote: 1},{ user: "juliusomo", vote: 1}, {user: "maxblagun", vote: 1}],
-    
+    votes: [
+      { username: "amyrobson", value: 1 },
+      { username: "juliusomo", value: 1 },
+      { username: "maxblagun", value: 1 },
+    ],
   },
   {
     id: 4,
@@ -47,6 +56,10 @@ export const INITIAL_COMMENTS = [
     username: "juliusomo",
     replyToCommentId: 2,
     replyToUsername: "maxblagun",
-    votes: [{ user: "amyrobson", vote: 1}, {user: "maxblagun", vote: 1}, {user: "ramsesmiron", vote: 1}],
-    
+    votes: [
+      { username: "amyrobson", value: 1 },
+      { username: "maxblagun", value: 1 },
+      { username: "ramsesmiron", value: 1 },
+    ],
+  },
 ];

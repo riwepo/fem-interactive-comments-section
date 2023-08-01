@@ -7,7 +7,6 @@ export function transformCommentsToThreads(now, comments, currentUsername) {
   const topLevelComments = comments.filter((c) => !c.replyToCommentId);
   // highest score first
   const sortedTopLevel = topLevelComments.sort((a, b) => b.score - a.score);
-  // console.log("sortedTopLevel", sortedTopLevel);
   const topLevelTransformed = sortedTopLevel.map((x) =>
     transform(now, currentUsername, x)
   );
@@ -21,25 +20,31 @@ export function transformCommentsToThreads(now, comments, currentUsername) {
     const result = { ...x, replies: transformedReplies };
     return result;
   });
-  console.log(withReplies);
   return withReplies;
 }
 
 // turn user into object
 // add empty replies array
 // convert createdAt timestamp to howOld descriptive string
-// convert voters to score
+// see if upvote or downvote is enabled
+// calculate score
 function transform(now, currentUsername, comment) {
-  // console.log(comment);
   const commentDate = new Date(Date.parse(comment.createdAt));
   const howOld = timeDifference(now, commentDate);
+  const isCommentUsers = currentUsername === comment.username;
+  const currentUserVotes = comment.votes.filter(
+    (x) => x.username === currentUsername
+  );
+  const currentUserVote =
+    currentUserVotes.length > 0 ? currentUserVotes[0] : null;
   const isUpvoteEnabled =
-    comment.username !== currentUsername &&
-    comment.upvoters.filter((x) => x === currentUsername).length === 0;
+    !isCommentUsers && (!currentUserVote || currentUserVote.value < 1);
   const isDownvoteEnabled =
-    comment.username !== currentUsername &&
-    comment.downvoters.filter((x) => x === currentUsername).length === 0;
-  const score = comment.upvoters.length - comment.downvoters.length;
+    !isCommentUsers && (!currentUserVote || currentUserVote.value > -1);
+  let score = 0;
+  if (comment.votes && comment.votes.length > 0) {
+    score = comment.votes.reduce((prev, curr) => prev + curr.value, 0);
+  }
   const result = {
     ...comment,
     howOld,

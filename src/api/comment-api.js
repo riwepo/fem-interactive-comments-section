@@ -16,12 +16,14 @@ export function addComment(
   replyToUsername,
   content
 ) {
+  // the next id will be one more than the current max
   const nextId =
     Math.max.apply(
       Math,
       comments.map((c) => c.id)
     ) + 1;
 
+  // build a new comment
   const newComment = {
     id: nextId,
     content: content,
@@ -29,8 +31,7 @@ export function addComment(
     username: author,
     replyToCommentId: replyToCommentId,
     replyToUsername: replyToUsername,
-    upvoters: [],
-    downvoters: [],
+    votes: [],
   };
   const newCommentList = [...comments, newComment];
 
@@ -56,11 +57,18 @@ export function deleteComment(comments, id) {
  * @returns new list of comments
  */
 export function updateComment(comments, id, content) {
-  const matchingIdComments = comments.filter((x) => x.id === id);
   let newCommentList = comments;
+
+  // find comments for the comment id
+  // we would always expect to find exactly 1
+  // but don't want to crash if not there
+  const matchingIdComments = comments.filter((x) => x.id === id);
   if (matchingIdComments.length === 1) {
-    const existingComment = matchingIdComments[0];
-    const updatedComment = { ...existingComment, content };
+    const matchingComment = matchingIdComments[0];
+    // build a whole new comment
+    const updatedComment = { ...matchingComment, content };
+
+    // buld a whole new comments list
     const otherComments = comments.filter((x) => x.id !== id);
     newCommentList = [...otherComments, updatedComment];
   }
@@ -68,38 +76,65 @@ export function updateComment(comments, id, content) {
   return newCommentList;
 }
 
+/**
+ *
+ * @param {*} comments existing comment set, because we are simulating
+ * @param {*} id id of the comment to vote on
+ * @param {*} username username of the guy voting
+ * @param {*} isUpvote true if upvote, otherwise downvote
+ * @returns
+ */
 export function updateCommentVotes(comments, id, username, isUpvote) {
-  console.log("username", username);
-  const matchingIdComments = comments.filter((x) => x.id === id);
+  let currentUsernameVoteValue = 0;
   let newCommentList = comments;
-  if (matchingIdComments.length === 1) {
-    const existingComment = matchingIdComments[0];
-    console.log(existingComment);
-    const otherUpvoters = existingComment.upvoters.filter(
-      (x) => x !== username
-    );
-    const otherDownvoters = existingComment.downvoters.filter(
-      (x) => x !== username
-    );
-    console.log(
-      "other upvoters",
-      otherUpvoters,
-      "other downvoters",
-      otherDownvoters
-    );
+  let updatedVotes = [];
 
-    let upvoters = otherUpvoters;
-    let downvoters = otherDownvoters;
+  // find comments for the comment id
+  // we would always expect to find exactly 1
+  // but don't want to crash if not there
+  const matchingIdComments = comments.filter((x) => x.id === id);
+  if (matchingIdComments.length === 1) {
+    const matchingComment = matchingIdComments[0];
+
+    // find votes already by the guy voting
+    // we expect 0 or 1 votes
+    const matchingVotes = matchingComment.votes.filter(
+      (x) => x.username === username
+    );
+    if (matchingVotes.length > 0) {
+      currentUsernameVoteValue = matchingVotes[0].value;
+    }
     if (isUpvote) {
-      upvoters.push(username);
+      currentUsernameVoteValue++;
     } else {
-      downvoters.push(username);
+      currentUsernameVoteValue--;
     }
 
-    console.log("upvoters", upvoters, "downvoters", downvoters);
+    // limit value to be between -1 and +1
+    // the UI should prevent this anyway
+    currentUsernameVoteValue = Math.max(-1, currentUsernameVoteValue);
+    currentUsernameVoteValue = Math.min(1, currentUsernameVoteValue);
 
-    const updatedComment = { ...existingComment, upvoters, downvoters };
+    const otherVotes = matchingComment.votes.filter(
+      (x) => x.username !== username
+    );
+
+    // rebuild the vote list from scratch
+    // only put the new vote in if it is non-zero
+    updatedVotes = [...otherVotes];
+    if (currentUsernameVoteValue) {
+      updatedVotes = [
+        ...otherVotes,
+        { username, value: currentUsernameVoteValue },
+      ];
+    }
+
+    // rebuild a whole new comment object
+    const updatedComment = { ...matchingComment, votes: updatedVotes };
+
     const otherComments = comments.filter((x) => x.id !== id);
+
+    // rebuild a whole new comment list
     newCommentList = [...otherComments, updatedComment];
   }
 

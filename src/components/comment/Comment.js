@@ -18,8 +18,9 @@ function Comment({ comment, onCreateReplyClick }) {
   const [enteredContent, setEnteredContent] = useState("");
   const [isEnteredContentValid, setIsEnteredContentValid] = useState(true);
 
-  const currentUser = useContext(CurrentUserContext);
-  const userIsCurrentUser = currentUser.username === comment.user.username;
+  const currentUserContext = useContext(CurrentUserContext);
+  const currentUsername = currentUserContext.username;
+  const userIsCurrentUser = currentUsername === comment.user.username;
 
   const commentsContext = useContext(CommentsContext);
 
@@ -30,10 +31,10 @@ function Comment({ comment, onCreateReplyClick }) {
     setIsRequestingDelete(false);
   };
   const votePlusClickHandler = () => {
-    commentsContext.updateCommentVotes(comment.id, currentUser, true);
+    commentsContext.updateCommentVotes(comment.id, currentUsername, true);
   };
   const voteMinusClickHandler = () => {
-    commentsContext.updateCommentVotes(comment.id, currentUser, false);
+    commentsContext.updateCommentVotes(comment.id, currentUsername, false);
   };
   const requestDeleteClickHandler = () => {
     setIsRequestingDelete(true);
